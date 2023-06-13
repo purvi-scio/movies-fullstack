@@ -18,7 +18,7 @@ h1 {
   margin: 0;
 }
 
-.movie {
+/* .movie {
   color: black;
   background-color: rgb(236, 222, 222);
   padding: 3px;
@@ -27,15 +27,40 @@ h1 {
   text-align: start;
   font-weight: bold;
   margin-top: 14px;
-}
+} */
 
 .main {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   padding: 14px;
+  align-items: center;
+  height: 90vh;
 }
 
+.btn {
+  background-color: #282c34;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid white;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.heading {
+  color: #282c34;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .movie img{
   height: 240px;
   width: 100%;

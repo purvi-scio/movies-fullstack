@@ -1,42 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header.js';
-import Movies from './components/Movies';
-import movies from './movies.json'
+import React, {useState} from 'react';
+// object destructuring
+
 
 function App() {
+  const[num, setNum] = useState(0);
+  // array destructuring
+  // const arr = [1,2,4]
+  // const [a,b,c] = arr;
+  // const newarr = [1,2,setNum]
+  // const [a,b,setNum] = newarr;
 
-  let login=true;
+  const inc = (n) => {
+    setNum(num+n); 
+  }
+
+  function dec(n) {
+    setNum(num-n);  
+  }
+
   return (
     <div className='App'>
-      {
-        // login ? <h1 style={{color: "red"}}>Logged In</h1> : <h1>Logged Out</h1>
-        (()=>{
-
-          if(login){
-            return <h1 style={{color: "blue"}}>Logged In</h1>
-          }else{
-            return <h1>Logged Out</h1>
-          }
-
-        })()
-      }
       <Header />
       <div className='main'>
-        {
-          movies.map((movie, index) => {
-            return (
-            <Movies 
-            key={index}
-            title={movie.Title}
-            year={movie.Year}
-            img={movie.Poster}
-            />
-            )
-          })
-        }
+        {/* <h1 className='heading'>1</h1> */}
+        <h1 className='heading'>{num}</h1>
+        <div className='buttons'>
+          
+        {/* <button className='btn' onClick={inc}>increment</button>
+        <button className='btn' onClick={dec}>decrement</button> */}
 
-        
+        {/* passing args to inc and dec - add callback () => */}
+        <button className='btn' onClick={() => inc(2)}>increment</button>
+        <button className='btn' onClick={() => dec(1)}>decrement</button>
+        </div>
       </div>
     </div> 
   );
