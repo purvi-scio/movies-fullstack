@@ -2,7 +2,7 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <div className='header'>Movie Review</div>
+    <div className='header'>Use effect hook</div>
   )
 }
 
