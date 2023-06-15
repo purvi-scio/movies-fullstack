@@ -6,15 +6,17 @@ import Fields from './components/Fields.js';
 function App() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    // need state to keep the data to be sent to the server 
-    // and then do some operation on it
-    // we want to save the data in an array on clicking the submit button
+    // if there are multiple input fields then we need to create multiple states
+    // instead of creating multiple states we can create an object
+    // const [data, setData] = useState({name: '', email: ''});
+    // ***************
+    const [form, setForm] = useState({ name: '', email: '' });
+
     const [data, setData] = useState([]);
 
     const addData = () => {
-        setData([...data, { name: name, email: email }]) // ...data means the previous data, we want to append the new data to the previous data (spread operator)
-        setName('');
-        setEmail('');   // to clear the input fields after submitting   
+        setData([...data, form]);
+        setForm(form);
     }
 
     const removeItem = (index) => {
@@ -34,13 +36,13 @@ function App() {
             <Header />
 
             <div className="form">
-                <input value={name}
-                    onChange={(event) => setName(event.target.value)}
+                <input value={form.name}
+                    onChange={(event) => setForm({ ...form, name: event.target.value })}
                     // whatever value we give in the box that value gets saved in the state
                     type="text" placeholder="Enter your name" />
 
-                <input value={email}
-                    onChange={(event) => setEmail(event.target.value)}
+                <input value={form.email}
+                    onChange={(event) => setForm({ ...form, email: event.target.value })}
                     type="text" placeholder="Enter your email" />
 
                 <button onClick={addData} style={{ color: "green" }}>Submit</button>
